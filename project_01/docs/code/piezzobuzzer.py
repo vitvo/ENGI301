@@ -61,6 +61,8 @@ Uses:
 
 """
 import os
+import Adafruit_BBIO.PWM as PWM
+import time
 
 # ------------------------------------------------------------------------
 # Constants
