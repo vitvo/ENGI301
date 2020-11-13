@@ -53,7 +53,8 @@ Necessary installations to the Pocketbeagle:
   ```
 Download all of the files in ENGI301/project_01/docs (excluding extractaudiofrequency.m) and unzip the folder for pyledscape.zip. Move all of the code files into
 pyledscape folder in the unzip folder (this provides the most direct way to run the code). You can change the permissions of the run script to auto-run the game
-on boot, please see the provided link below on more instructions.
+on boot, please see the provided link below on more instructions. Before setting the code on auto-run, ensure that you have tested out the code after configuring the pins
+by `sudo bash configure_pins.sh` (file provided in the zip folder) and successfully enabling the UIO by changing /boot/uEnt.txt file in the Pocketbeagle!
 
 In your Pocketbeagle command line on Cloud9, create a folder to store of all the files using the following commands:
 
