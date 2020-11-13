@@ -31,15 +31,17 @@ Software Installations:
 -
 
 Necessary installations to the Pocketbeagle:
-  `sudo apt-get update`
-  `sudo apt-get install build-essential python-dev python-setuptoolspython-pip python-smbus–y`
-  `sudo apt-get install python3-pip`
-  `sudo sudopip install Adafruit_BBIO`
-  `sudo sudopip install Adafruit_BBIO --upgrade`
-  `sudo apt-get install python3-dev python3-pillow -y`
-  `sudo pip3 install Adafruit-Blinka`
-  `sudo python3 -m pip install --upgrade Pillow`
-  `sudo apt-get install -y libopenjp2-7`
+  ```
+  sudo apt-get update
+  sudo apt-get install build-essential python-dev python-setuptoolspython-pip python-smbus–y
+  sudo apt-get install python3-pip
+  sudo sudopip install Adafruit_BBIO
+  sudo sudopip install Adafruit_BBIO --upgrade
+  sudo apt-get install python3-dev python3-pillow -y
+  sudo pip3 install Adafruit-Blinka
+  sudo python3 -m pip install --upgrade Pillow
+  sudo apt-get install -y libopenjp2-7
+  ```
 
 Helpful links and documentation resources:
   - How to set up your Pocketbeagle and get the necessary packages (Adafruit/Python): https://www.fernandomc.com/posts/pocket-beagle-board-getting-started/
