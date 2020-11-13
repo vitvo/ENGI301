@@ -44,6 +44,8 @@ Background Information:
     * http://msevm.com/2020/lafvin/33/pb.pdf
     
 Uses:
+  * LEDscape
+    * https://beagleboard.org/blog/tag/ledscape
   * Pillow Image Module
     * https://pillow.readthedocs.io/en/stable/reference/Image.html
   * Adapted library for RGB Matrix from Raspberry Pi 
