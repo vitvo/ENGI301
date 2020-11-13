@@ -22,10 +22,19 @@ I drew some inspirations from similar projects (although these were made using A
 *The provided Hackerster.io link has extra links for useful information!
 
 General comments on each components:
-  - Joystick Module: 
-  - Passive Buzzer:
-  - Hex Code Display:
+  - Joystick Module
+    - Ensure that you use Analog Ref +/- to power the joystick module. The current software of the module only includes 4 basic directions: up, down, left, and right. The 
+      controls for the module can be viewed in play_asteroids_game.py. Due to the fluctuations of the analog readings and sensitivity of the joystick module, please do not
+      touch it until calibration is finished (this message will be displayed in cloud9 command line). Additional information can be viewed in play_asteroids_game.py header.
+  - Passive Buzzer
+    - The frequencies used for this project were obtained using MATLAB Audio Toolbox which takes in a .ogg file and detects the frequencies of the track. See the provided
+      Matlab code for additional information. You can generate your own list of frequencies to extract using this code! Please make sure that it is a text file with each
+      frequency separated by a new line for the code to work. Additional information can be viewed in asteroids_audio.py header.
+  - Hex Code Display
+    - Once you press the joystick module, the code will detect if the center of the crosshair is on an asteroid. If it is, your score will update on the hex code display.
   - RGB Matrix Display:
+    - Please follow the hardware installations instructions carefully. The current code uses the Image Pillow Module and PyLedscape. In addition, the pins are configured with  
+      UIO. Alternatively, the display can be displayed using pin configurations. Please see this link for additional information: https://learn.adafruit.com/connecting-a-16x32-rgb-led-matrix-panel-to-a-raspberry-pi/experimental-python-code/. Currently there is an issue with the display updating the game using UIO.
 
 Software Installations:
 -
@@ -42,12 +51,25 @@ Necessary installations to the Pocketbeagle:
   sudo python3 -m pip install --upgrade Pillow
   sudo apt-get install -y libopenjp2-7
   ```
+Download all of the files in ENGI301/project_01/docs (excluding extractaudiofrequency.m) and unzip the folder for pyledscape.zip. Move all of the code files into
+pyledscape folder in the unzip folder (this provides the most direct way to run the code). You can change the permissions of the run script to auto-run the game
+on boot, please see the provided link below on more instructions.
+
+In your Pocketbeagle command line on Cloud9, create a folder to store of all the files using the following commands:
+
+  ```
+  mkdir ENGI301
+  cd ENGI301
+  mkdir clear_asteroids_game
+  cd clear_asteroids_game
+  ```
 
 Helpful links and documentation resources:
   - How to set up your Pocketbeagle and get the necessary packages (Adafruit/Python): https://www.fernandomc.com/posts/pocket-beagle-board-getting-started/
   - How to connect the Pocketbeagle to the Internet to install the necessary libraries: https://ofitselfso.com/BeagleNotes/HowToConnectPocketBeagleToTheInternetViaUSB.php
   - Additional link on how to connect the Pocketbeagle to Internet (Windows): https://beagleboard.org/blog/2016-10-19-%E2%80%8Bhow-to-connect-a-beaglebone-black-to-the-internet-using-usb
   - How to autorun Python Script on startup (Linux): https://www.instructables.com/Raspberry-Pi-Launch-Python-script-on-startup/
+  - How to modify Pocketbeagle to use UIO: https://beagleboard.org/static/prucookbook/#io_uio
 
 Device Operation Instructions:
 - 
