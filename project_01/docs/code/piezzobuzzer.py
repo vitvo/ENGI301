@@ -54,38 +54,36 @@ Uses:
   * Piezzo Buzzer library developed in class, base code:
     * https://learn.adafruit.com/setting-up-io-python-library-on-beaglebone-black/pwm
   * Frequencies extracted from in-game audio files using MATLAB Audio Toolbox
-    * game_audio_hitasteroids1.txt
-    * game_audio_hitasteroids2.txt
-    * game_audio_hitasteroids3.txt
-    * game_audio_weaponfire.txt
+    * HitAsteroidsVar1.txt
+    * HitAsteroidsVar2.txt
+    * HitAsteroidsVar3.txt
+    * WeaponFire.txt
 
 """
 import os
 import Adafruit_BBIO.PWM as PWM
 import time
-import math
 
 # ------------------------------------------------------------------------
-# Sound Library
+# Constants
 # ------------------------------------------------------------------------
-WEAPON_FIRE_FILENAME    = "game_audio_weaponfire"
-HIT_ASTEROIDS1_FILENAME = "game_audio_hitasteroids1"
-HIT_ASTEROIDS2_FILENAME = "game_audio_hitasteroids2"
-HIT_ASTEROIDS3_FILENAME = "game_audio_weaponfire"
+WEAPON_FIRE_FILENAME    = "WeaponFire"
+HIT_ASTEROIDS1_FILENAME = "HitAsteroidsVar1"
+HIT_ASTEROIDS2_FILENAME = "HitAsteroidsVar2"
+HIT_ASTEROIDS3_FILENAME = "HitAsteroidsVar3"
 
 # ------------------------------------------------------------------------
 # Functions / Classes
 # ------------------------------------------------------------------------
-
-class AsteroidsSound():
+class PiezzoBuzzer():
     """ Class to manage a Piezzo Buzzer """
-    piezzo      = None
+    buzzer      = None
     init_duty   = None
     sound_delay = None
     
-    def __init__(self, piezzo = "P1_36", init_duty = 66, sound_delay = 0.015):
+    def __init__(self, buzzer = "P1_36", init_duty = 66, sound_delay = 0.05):
         """ Initialize variables and set up display """
-        self.piezzo      = piezzo
+        self.buzzer      = buzzer
         self.init_duty   = init_duty
         self.sound_delay = sound_delay
         
@@ -94,7 +92,7 @@ class AsteroidsSound():
     def get_audio(self, audio_name):
         """ Extract the list of frequencies from text file """
         audio_file = open(audio_name + ".txt", "r")
-        audio_frequency = [math.floor(float((line.strip()))) for line in audio_file]
+        audio_frequency = [(line.strip()) for line in audio_file]
         audio_file.close()
         return audio_frequency
         
@@ -106,7 +104,7 @@ class AsteroidsSound():
         
         # Play the sound
         for frequency in audio_frequency:
-            PWM.set_frequency(self.piezzo, frequency)
+            PWM.set_frequency(self.piezzo, frequency[0])
             time.sleep(self.sound_delay)
             
         # Stop the sound
@@ -117,34 +115,34 @@ class AsteroidsSound():
     def create_sound(self, audio_name):
         """ Retrieve the audio file and play on Piezzo """
         # Retrieve the audio file with the listed frequencies
-        audio_frequency = self.get_audio(audio_name)
+        audio_frequency = self.get_audio(self, audio_name)
         
         # Play the sound using the frequencies
-        self.sound_game(audio_frequency)
+        self.sound_game(self, audio_frequency)
         
     # End def
     
-    def sound_weaponfire(self):
+    def sound_weaponfire():
         """ Play the audio of the weapon firing """
-        self.create_sound(WEAPON_FIRE_FILENAME)
+        create_sound(self, WEAPON_FIRE_FILENAME)
         
     # End def
         
-    def sound_hitasteroids1(self):
+    def sound_hitasteroids1():
         """ Play the audio of the asteroids being cleared (1st variation) """
-        self.create_sound(HIT_ASTEROIDS1_FILENAME)
+        create_sound(self, HIT_ASTEROIDS1_FILENAME)
         
     # End def
         
-    def sound_hitasteroids2(self):
+    def sound_hitasteroids3():
         """ Play the audio of the asteroids being cleared (2nd variation) """
-        self.create_sound(HIT_ASTEROIDS2_FILENAME)
+        create_sound(self, HIT_ASTEROIDS1_FILENAME)
         
     # End def
         
-    def sound_hitasteroids3(self):
+    def sound_hitasteroids3():
         """ Play the audio of the asteroids being cleared (3rd variation) """
-        self.create_sound(HIT_ASTEROIDS3_FILENAME)
+        create_sound(self, HIT_ASTEROIDS1_FILENAME)
 
     # End def
     
