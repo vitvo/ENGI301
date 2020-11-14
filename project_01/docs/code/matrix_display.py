@@ -133,6 +133,8 @@ class MatrixDisplay():
         
         for col in range(self.height):
             print(self.screen_display[col])
+          
+        self.screen_display = self.create_empty_matrix()
     
     # End def    
             
