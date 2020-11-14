@@ -16,30 +16,33 @@ Taking into account the mechanics of the game, I devise a list of functions I wa
   4. Sounds! Using a passive buzzer to include the music from the game. 
 
 I drew some inspirations from similar projects (although these were made using Arduino IE with C++ language, they still offer some general guidance on the necessary components and wiring):
-
   - https://create.arduino.cc/projecthub/kreck2003/max72xx-led-matrix-display-asteroids-game-070872
   - https://beagleboard.org/p/JasonLS/pocketinvaders-506e28
-*The provided Hackerster.io link has extra links for useful information!
 
 General comments on each components:
   - Joystick Module
     - Ensure that you use Analog Ref +/- to power the joystick module. The current software of the module only includes 4 basic directions: up, down, left, and right. The 
       controls for the module can be viewed in play_asteroids_game.py. Due to the fluctuations of the analog readings and sensitivity of the joystick module, please do not
       touch it until calibration is finished (this message will be displayed in cloud9 command line). Additional information can be viewed in play_asteroids_game.py header.
-  - Passive Buzzer
+  - Piezzo Buzzer
     - The frequencies used for this project were obtained using MATLAB Audio Toolbox which takes in a .ogg file and detects the frequencies of the track. See the provided
-      Matlab code for additional information. You can generate your own list of frequencies to extract using this code! Please make sure that it is a text file with each
-      frequency separated by a new line for the code to work. Additional information can be viewed in asteroids_audio.py header.
+      Matlab code for additional information. You can generate your own list of frequencies to extract with correct audio format! The .m file will generate a matrix to your
+      workspace. To convert this to a .txt file, simply open an empty text editor, copy and paste the contents of the matrix by double clicking the variable in the workspace,
+      and save! Make sure each line of .txt file represents one frequency. 
   - Hex Code Display
     - Once you press the joystick module, the code will detect if the center of the crosshair is on an asteroid. If it is, your score will update on the hex code display.
   - RGB Matrix Display:
-    - Please follow the hardware installations instructions carefully. The current code uses the Image Pillow Module and PyLedscape. In addition, the pins are configured with  
-      UIO. Alternatively, the display can be displayed using pin configurations. Please see this link for additional information: https://learn.adafruit.com/connecting-a-16x32-rgb-led-matrix-panel-to-a-raspberry-pi/experimental-python-code/. Currently there is an issue with the display updating the game using UIO.
+    - Please follow the hardware installations instructions carefully: https://learn.adafruit.com/32x16-32x32-rgb-led-matrix/
+    - The current code uses the Image Pillow Module and PyLedscape (received from Professor Erik Welsh which has been adapted from Keith Henrickson     
+      https://github.com/KeithHenrickson/LEDscape with limited supported for the RGB 32x32 Matrix. Ensure that the pins are correctly configured using configure_pins.sh 
+      in the zip file and UIO have been successfully set up. Alternatively, the display can be displayed using pin configurations. Please see this link for additional 
+      information: https://learn.adafruit.com/connecting-a-16x32-rgb-led-matrix-panel-to-a-raspberry-pi/experimental-python-code/.
 
 Software Installations:
 -
 
-Necessary installations to the Pocketbeagle:
+**Required Packages and Libraries**
+Enter the following command in the command:
   ```
   sudo apt-get update
   sudo apt-get install build-essential python-dev python-setuptoolspython-pip python-smbus–y
@@ -51,10 +54,12 @@ Necessary installations to the Pocketbeagle:
   sudo python3 -m pip install --upgrade Pillow
   sudo apt-get install -y libopenjp2-7
   ```
+
+**Python Code**
 Download all of the files in ENGI301/project_01/docs (excluding extractaudiofrequency.m) and unzip the folder for pyledscape.zip. Move all of the code files into
 pyledscape folder in the unzip folder (this provides the most direct way to run the code). You can change the permissions of the run script to auto-run the game
-on boot, please see the provided link below on more instructions. Before setting the code on auto-run, ensure that you have tested out the code after configuring the pins
-by `sudo bash configure_pins.sh` (file provided in the zip folder) and successfully enabling the UIO by changing /boot/uEnt.txt file in the Pocketbeagle!
+on boot, please see the 4th link below on more detail instructions. Before setting the code on auto-run, ensure that you have tested out the code after configuring the pins
+by `sudo bash configure_pins.sh` (file provided in the zip folder) and successfully enabling the UIO by changing /boot/uEnt.txt file in the Pocketbeagle.
 
 In your Pocketbeagle command line on Cloud9, create a folder to store of all the files using the following commands:
 
@@ -66,11 +71,11 @@ In your Pocketbeagle command line on Cloud9, create a folder to store of all the
   ```
 
 Helpful links and documentation resources:
-  - How to set up your Pocketbeagle and get the necessary packages (Adafruit/Python): https://www.fernandomc.com/posts/pocket-beagle-board-getting-started/
-  - How to connect the Pocketbeagle to the Internet to install the necessary libraries: https://ofitselfso.com/BeagleNotes/HowToConnectPocketBeagleToTheInternetViaUSB.php
-  - Additional link on how to connect the Pocketbeagle to Internet (Windows): https://beagleboard.org/blog/2016-10-19-%E2%80%8Bhow-to-connect-a-beaglebone-black-to-the-internet-using-usb
-  - How to autorun Python Script on startup (Linux): https://www.instructables.com/Raspberry-Pi-Launch-Python-script-on-startup/
-  - How to modify Pocketbeagle to use UIO: https://beagleboard.org/static/prucookbook/#io_uio
+  1. How to set up your Pocketbeagle and get the necessary packages (Adafruit/Python): https://www.fernandomc.com/posts/pocket-beagle-board-getting-started/
+  2. How to connect the Pocketbeagle to the Internet to install the necessary libraries: https://ofitselfso.com/BeagleNotes/HowToConnectPocketBeagleToTheInternetViaUSB.php
+  3. Additional link on how to connect the Pocketbeagle to Internet (Windows): https://beagleboard.org/blog/2016-10-19-%E2%80%8Bhow-to-connect-a-beaglebone-black-to-the-internet-using-usb
+  4. How to autorun Python Script on startup (Linux): https://www.instructables.com/Raspberry-Pi-Launch-Python-script-on-startup/
+  5. How to modify Pocketbeagle to use UIO: https://beagleboard.org/static/prucookbook/#io_uio
 
 Device Operation Instructions:
 - 
@@ -86,11 +91,10 @@ Once you have set up all of the hardware and software for the game following the
 
 Note: The following game still has major bugs with the display. Instead of playing on the Adafruit RGB 32x32 matrix, it is recommended to play with the print lines on the Pocketbeagle command lines. Alternatively, you can hook this up on a smaller display such as a 16x16 LED display or 8x8 LED display and change the dimensions of the display in matrix_display.py file in init_game. 
 
-Current Issues and Improvements:
+Current Software Issues and Improvements:
 - 
-  1. The game still has major bugs in terms of accounting for the scores and based on how the code is set up, the display updates both the crosshair movement and the movement of 
+  1. The game has major bugs in terms of accounting for the scores and based on how the code is set up, the display updates both the crosshair movement and the movement of 
   the asteroid synchronously which makes it incredibly difficult to detect if someone has cleared the asteroids.
   2. The game is very simplified with the shapes of the asteroids stored as rectangles and the trajectory is a randomized linear line with no built-in velocity adjustment such
   as the ones in the actual Among Us game.
   3. The joystick module only has 4 built-in directions with no sensitivity. Changing the code for the joystick module to account for all movements is a possibility.
-  4. The current code works with the Adafruit 32x32 RGB Matrix Display which using the PyLedscape and Image Pillow Module has major issues in updating the display.
