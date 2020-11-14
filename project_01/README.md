@@ -19,6 +19,9 @@ I drew some inspirations from similar projects (although these were made using A
   - https://create.arduino.cc/projecthub/kreck2003/max72xx-led-matrix-display-asteroids-game-070872
   - https://beagleboard.org/p/JasonLS/pocketinvaders-506e28
 
+Software Installations:
+-
+
 General comments on each components:
   - Joystick Module
     - Ensure that you use Analog Ref +/- to power the joystick module. The current software of the module only includes 4 basic directions: up, down, left, and right. The 
@@ -37,9 +40,6 @@ General comments on each components:
       https://github.com/KeithHenrickson/LEDscape with limited supported for the RGB 32x32 Matrix. Ensure that the pins are correctly configured using configure_pins.sh 
       in the zip file and UIO have been successfully set up. Alternatively, the display can be displayed using pin configurations. Please see this link for additional 
       information: https://learn.adafruit.com/connecting-a-16x32-rgb-led-matrix-panel-to-a-raspberry-pi/experimental-python-code/.
-
-Software Installations:
--
 
 **Required Packages and Libraries**
 Enter the following command in the command:
