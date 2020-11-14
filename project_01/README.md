@@ -42,6 +42,7 @@ General comments on each components:
       information: https://learn.adafruit.com/connecting-a-16x32-rgb-led-matrix-panel-to-a-raspberry-pi/experimental-python-code/.
 
 **Required Packages and Libraries**
+
 Enter the following command in the command:
   ```
   sudo apt-get update
@@ -56,6 +57,7 @@ Enter the following command in the command:
   ```
 
 **Python Code**
+
 Download all of the files in ENGI301/project_01/docs (excluding extractaudiofrequency.m) and unzip the folder for pyledscape.zip. Move all of the code files into
 pyledscape folder in the unzip folder (this provides the most direct way to run the code). You can change the permissions of the run script to auto-run the game
 on boot, please see the 4th link below on more detail instructions. Before setting the code on auto-run, ensure that you have tested out the code after configuring the pins
