@@ -35,5 +35,5 @@
 # 
 # --------------------------------------------------------------------------
 cd /var/lib/cloud9/ENGI301/pyledscape/clear_asteroids_game
-# ./configure_pins.sh
+./configure_pins.sh
 PYTHONPATH=/var/lib/cloud9/ENGI301/clear_asteroids_game/pyledscape sudo python3 play_clear_asteroids.py
