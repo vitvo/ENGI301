@@ -1,0 +1,14 @@
+Designator,Manufacturer/MPN,Quantity,Description
+BC,CUI Devices PJ-102B,1,"2.5 x 6.5 mm, 2.5 A, Horizontal, Through Hole, Tapered Pins, Dc Power Jack Connector"
+BZ,Adafruit Industries 1740,1,Small Enclosed Piezo w/Wires
+FUD1 - FUD3,DNP,DNP,DNP
+HD,Adafruit Industries 1001,1,White 7-segment clock display - 0.56 digit height
+JS,Adafruit Industries 512,1,Analog 2-axis Thumb Joystick with Select Button + Breakout Board
+LLS1 - LLS2,Texas Instruments TXB0108RGYR,2,8-Bit Bidirectional Voltage-Level Shifter with Auto Direction Sensing and +/-15-kV ESD Protect 20-VQFN -40 to 85
+PB,BeagleBoard POCKETBEAGLE,,OSD3358-SM Application Processor and SOC Development Board 1000MHz CPU 512MB RAM 4KB I2C EEPROM Debian GNU/Linux
+"PW, SM",Adafruit Industries 2601,1,Adafruit RGB Matrix Shield for Arduino (require the power connector and 2x8 Shrouded
+R10,Yageo RC0805FR-07287RL,,Res Thick Film 0805 287 Ohm 1% 0.125W(1/8W) ±100ppm/C Pad SMD T/R
+R1 - R8,TE Connectivity CRGCQ1206F10K,8,Res Thick Film 1207 10K Ohm 1% 0.25W(1/4W) +/-100ppm/C Pad SMD Automotive T/R
+R9,Panasonic ERJ-8ENF1000V,1,Res Thick Film 1206 100 Ohm 1% 1/4W +/-100pm/C Molded SMD Punched Carrier T/R
+MGT1 - MGT3,DNP,DNP,DNP
+,Adafruit 32x32 RGB LED Matrix Panel - 5mm Pitch,1,"32x32, 2000mcd LEDS on 5mm Pitch LED Panel with 5V reguated power input and M3 Mounting Screws"
